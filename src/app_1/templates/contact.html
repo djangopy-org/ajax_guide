@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block head %}
+	<title>Contact Form[FBV]</title>
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="text-center display-4">Contact Form[FBV]</h1>
+			<p class="lead text-center">This is sample example for integration of AJAX with Django</p>
+		</div>
+		<div class="row justify-content-center align-items-center">
+			<div class="col-sm-6 ">
+				<form id = "contactForm" method= "POST">{% csrf_token %}
+					{{ contactForm.as_p }}
+					<input type="submit" name="contact-submit" class="btn btn-primary" />
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block script %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#contactForm").submit(function(e){
+				e.preventDefault();
+				var serializedData = $(this).serialize();
+				$.ajax({
+					type : 'POST',
+					url :  "{% url 'contact_submit' %}",
+					data : serializedData,
+					success : function(response){
+						$("#contactForm")[0].reset();
+						console.log(response);
+					},
+					error : function(response){
+						console.log(response)
+					}
+				})
+			})
+		})
+	</script>
+{% endblock %}
