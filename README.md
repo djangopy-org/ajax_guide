@@ -3,6 +3,7 @@ This is the example project for implementing Ajax in Django Project.
 
 ### Installation guide
 - Clone repository
+
 	`
 	git clone https://github.com/djangopy-org/ajax_guide
 	`
