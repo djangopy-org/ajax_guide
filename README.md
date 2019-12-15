@@ -1,6 +1,8 @@
 # Django guide for implementing AJAX
 This is the example project for implementing Ajax in Django Project. 
 
+Guide link: https://djangopy.org/learn/step-up-guide-to-implement-ajax-in-django/
+
 ### Installation guide
 - Clone repository
 
